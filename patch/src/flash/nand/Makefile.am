@@ -7,11 +7,25 @@ noinst_LTLIBRARIES += %D%/libocdflashnand.la
 	%D%/fileio.c \
 	%D%/tcl.c \
 	%D%/arm_io.c \
-	$(NAND_DRIVERS) \
 	%D%/driver.c \
 	$(NANDHEADERS)
 
-NAND_DRIVERS = 
+NAND_DRIVERS = \
+	%D%/nonce.c \
+	%D%/davinci.c \
+	%D%/lpc3180.c \
+	%D%/lpc32xx.c \
+	%D%/mxc.c \
+	%D%/mx3.c \
+	%D%/orion.c \
+	%D%/s3c24xx.c \
+	%D%/s3c2410.c \
+	%D%/s3c2412.c \
+	%D%/s3c2440.c \
+	%D%/s3c2443.c \
+	%D%/s3c6400.c \
+	%D%/at91sam9.c \
+	%D%/nuc910.c
 
 NANDHEADERS = \
 	%D%/arm_io.h \

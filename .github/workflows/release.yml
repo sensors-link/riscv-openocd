@@ -1,0 +1,23 @@
+name: '发布Release-draft(自动)'
+on:
+  push:
+    tags:
+      - 'S-Link*'    
+jobs:
+  draft-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Build Package
+        run: |
+          sudo make dep
+          version=`echo "${{ github.ref_name }}" | sed -e 's/^S-Link//'`
+          make VERSION=$version
+      - name: Draft Release
+        uses: softprops/action-gh-release@v1
+        with:
+          name: "Release ${{ github.ref_name }}"
+          body: '变更记录:'
+          files: 'output/sysroot/openocd.zip'
+          draft: true

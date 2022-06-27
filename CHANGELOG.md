@@ -1,5 +1,5 @@
 # ChangeLog
 
-## v1.0.2
-- Eclipse IDE for Embedded C/C++ Developers 2022-06
-- phnx-sdk版本1.1.0
+## S-Link0.3.2
+- 发布方式变更, 本项目只保留patch和Makefile, 以便维护
+- 使用上游版本riscv/riscv-openocd 1ba1b87

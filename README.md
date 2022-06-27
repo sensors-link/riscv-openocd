@@ -1,8 +1,7 @@
-# Eclipse for S-Link SoCs
+# openocd for S-Link SoCs
 
-从官方 Eclipse IDE for Embedded C/C++ Developers 生成 Eclipse for S-Link。
+从官方 riscv/riscv-openocd 生成 openocd for S-Link。
 
-1. 基线从NucleiStudio修改为Eclipse IDE for Embedded C/C++ Developers, 内置JRE
-2. 使用S-Link github发布版本的OpenOCD for S-Link
-3. 使用xpack-dev-tools github发布版本的windows-build-tools和GCC toolchain
-4. 项目不内置phnx-sdk, 构件时从phnx-sdk github下载
+1. 基线为riscv/riscv-openocd 1ba1b87
+2. 增加S-Link SoCs支持
+3. 删除不需要的target/flash drivers/rtos，减小发布包

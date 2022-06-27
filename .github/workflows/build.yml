@@ -1,0 +1,27 @@
+name: '构建测试版(手动)'
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 版本号
+        default: snapshot
+        required: true
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Build Package
+        run: |
+          sudo make dep          
+          version=`echo "${{ github.event.inputs.version }}" | sed -e 's/^S-Link//'`
+          make VERSION=$version
+      - name: Archive artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: openocd_${{ github.event.inputs.version }}
+          path: |
+            output/sysroot/openocd.zip
+          if-no-files-found: error

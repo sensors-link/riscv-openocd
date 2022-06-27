@@ -1,4 +1,3 @@
-backup/
-eclipse/
+.vscode/
 output/
 *.zip
